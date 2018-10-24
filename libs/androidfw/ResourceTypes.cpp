@@ -476,8 +476,6 @@ status_t ResStringPool::setTo(const void* data, size_t size, bool copyData)
 
     const bool notDeviceEndian = htods(0xf0) != 0xf0;
 
-    const bool notDeviceEndian = htods(0xf0) != 0xf0;
-
     if (copyData || notDeviceEndian) {
         mOwnedData = malloc(size);
         if (mOwnedData == NULL) {
