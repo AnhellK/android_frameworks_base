@@ -427,6 +427,7 @@ public final class KeyboardShortcuts {
             } catch (RemoteException e) {
                 Log.e(TAG, "PackageManagerService is dead");
             }
+       }
 
         if (assistPackageInfo != null) {
             final Icon assistIcon = Icon.createWithResource(
