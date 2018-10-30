@@ -30,6 +30,7 @@ import android.util.Log;
 
 import libcore.util.EmptyArray;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
