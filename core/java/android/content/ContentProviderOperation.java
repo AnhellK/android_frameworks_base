@@ -98,7 +98,6 @@ public class ContentProviderOperation implements Parcelable {
         mType = cpo.mType;
         mUri = withUri;
         mValues = cpo.mValues;
-        mValues = cpo.mValues;
         mSelection = cpo.mSelection;
         mSelectionArgs = cpo.mSelectionArgs;
         mExpectedCount = cpo.mExpectedCount;
