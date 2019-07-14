@@ -824,7 +824,7 @@ public abstract class Layout {
         return TextUtils.packRangeInLong(0, getLineEnd(line));
     }
 
-     /**
+    /**
      * Checks if the trailing BiDi level should be used for an offset
      *
      * This method is useful when the offset is at the BiDi level transition point and determine
@@ -850,7 +850,7 @@ public abstract class Layout {
      * @returns true if offset is at the BiDi level transition point and trailing BiDi level is
      *          higher than previous BiDi level. See above for the detail.
      */
-   private boolean primaryIsTrailingPrevious(int offset) {
+    private boolean primaryIsTrailingPrevious(int offset) {
         int line = getLineForOffset(offset);
         int lineStart = getLineStart(line);
         int lineEnd = getLineEnd(line);

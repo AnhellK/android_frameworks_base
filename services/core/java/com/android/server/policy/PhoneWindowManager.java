@@ -1496,7 +1496,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // See if we deferred screen wake because long press power for torch is enabled
             if (mResolvedLongPressOnPowerBehavior == LONG_PRESS_POWER_TORCH &&
                     (!isScreenOn() || isDozeMode())) {
-                 wakeUpFromPowerKey(SystemClock.uptimeMillis());
+                wakeUpFromPowerKey(SystemClock.uptimeMillis());
             }
         }
     }
@@ -1677,7 +1677,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-   private boolean isDozeMode() {
+    private boolean isDozeMode() {
         IDreamManager dreamManager = getDreamManager();
 
         try {
@@ -1694,7 +1694,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (FactoryTest.isLongPressOnPowerOffEnabled()) {
             return LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM;
         }
-        if (mTorchLongPressPowerEnabled && !isScreenOn()) {
+        if (mTorchLongPressPowerEnabled && (!isScreenOn() || isDozeMode())) {
             return LONG_PRESS_POWER_TORCH;
         }
         return mLongPressOnPowerBehavior;
@@ -7110,7 +7110,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // is in control of the state of the screen.
         if (isDozing) {
             return true;
-       }
+        }
 
         // Otherwise, consume events since the user can't see what is being
         // interacted with.

@@ -48,6 +48,7 @@ public class PackageItemInfo {
     private static final float MAX_LABEL_SIZE_PX = 500f;
     /** The maximum length of a safe label, in characters */
     private static final int MAX_SAFE_LABEL_LENGTH = 50000;
+
     /**
      * Public name of this item. From the "android:name" attribute.
      */
@@ -188,7 +189,7 @@ public class PackageItemInfo {
                 break;
             }
             // replace all non-break space to " " in order to be trimmed
-           final int charCount = Character.charCount(codePoint);
+            final int charCount = Character.charCount(codePoint);
             if (type == Character.SPACE_SEPARATOR) {
                 sb.append(' ');
             } else {

@@ -760,7 +760,7 @@ public class GnssLocationProvider implements LocationProviderInterface {
         // this approach is just fine because events are posted to our handler anyway
         mProperties = new Properties();
         // Create a GPS net-initiated handler (also needed by handleInitialize)
-         mNIHandler = new GpsNetInitiatedHandler(context,
+        mNIHandler = new GpsNetInitiatedHandler(context,
                                                 mNetInitiatedListener,
                                                 mSuplEsEnabled);
         sendMessage(INITIALIZE_HANDLER, 0, null);

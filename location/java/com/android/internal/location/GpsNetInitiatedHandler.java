@@ -112,7 +112,7 @@ public class GpsNetInitiatedHandler {
     private volatile boolean mIsSuplEsEnabled;
 
     // Set to true if the phone is having emergency call.
-   private volatile boolean mIsInEmergencyCall;
+    private volatile boolean mIsInEmergencyCall;
 
     // If Location function is enabled.
     private volatile boolean mIsLocationEnabled = false;

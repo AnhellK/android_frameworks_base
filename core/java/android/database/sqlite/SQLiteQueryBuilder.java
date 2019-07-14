@@ -391,7 +391,7 @@ public class SQLiteQueryBuilder
             // originally specified. An attacker cannot create an expression that
             // would escape the SQL expression while maintaining balanced parentheses
             // in both the wrapped and original forms.
- 
+
             // NOTE: The ordering of the below operations is important; we must
             // execute the wrapped query to ensure the untrusted clause has been
             // fully isolated.
@@ -586,7 +586,7 @@ public class SQLiteQueryBuilder
         String where = computeWhere(selection);
 
         return buildQueryString(
-               mDistinct, mTables, projection, where,
+                mDistinct, mTables, projection, where,
                 groupBy, having, sortOrder, limit);
     }
 
@@ -812,7 +812,7 @@ public class SQLiteQueryBuilder
         }
         return null;
     }
-    
+
     private @Nullable String computeWhere(@Nullable String selection) {
         final boolean hasInternal = !TextUtils.isEmpty(mWhereClause);
         final boolean hasExternal = !TextUtils.isEmpty(selection);

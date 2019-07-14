@@ -81,6 +81,7 @@ LOCAL_SRC_FILES:= \
     android_text_AndroidBidi.cpp \
     android_text_StaticLayout.cpp \
     android_os_Debug.cpp \
+    android_os_GraphicsEnvironment.cpp \
     android_os_MemoryFile.cpp \
     android_os_MessageQueue.cpp \
     android_os_Parcel.cpp \
@@ -149,6 +150,7 @@ LOCAL_SRC_FILES:= \
     android_hardware_Camera.cpp \
     android_hardware_camera2_CameraMetadata.cpp \
     android_hardware_camera2_legacy_LegacyCameraDevice.cpp \
+    android_hardware_camera2_legacy_PerfMeasurement.cpp \
     android_hardware_camera2_DngCreator.cpp \
     android_hardware_Radio.cpp \
     android_hardware_SensorManager.cpp \

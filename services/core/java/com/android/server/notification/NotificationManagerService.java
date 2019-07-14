@@ -270,6 +270,7 @@ public class NotificationManagerService extends SystemService {
 
     private boolean mScreenOnEnabled = false;
     private boolean mScreenOnDefault = false;
+
     private long[] mFallbackVibrationPattern;
     private boolean mUseAttentionLight;
     boolean mSystemReady;
@@ -1595,13 +1596,13 @@ public class NotificationManagerService extends SystemService {
         @Override
         public boolean areNotificationsEnabledForPackage(String pkg, int uid) {
             checkCallerIsSystemOrSameApp(pkg);
-             if (UserHandle.getCallingUserId() != UserHandle.getUserId(uid)) {
+            if (UserHandle.getCallingUserId() != UserHandle.getUserId(uid)) {
                 getContext().enforceCallingPermission(
                         android.Manifest.permission.INTERACT_ACROSS_USERS,
                         "canNotifyAsPackage for uid " + uid);
             }
 
-           return (mAppOps.checkOpNoThrow(AppOpsManager.OP_POST_NOTIFICATION, uid, pkg)
+            return (mAppOps.checkOpNoThrow(AppOpsManager.OP_POST_NOTIFICATION, uid, pkg)
                     == AppOpsManager.MODE_ALLOWED) && !isPackageSuspendedForUser(pkg, uid);
         }
 

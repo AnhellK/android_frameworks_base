@@ -338,7 +338,7 @@ public class MiniThumbFile {
         }
         return 0;
     }
-	
+
     public synchronized void eraseMiniThumb(long id) {
         RandomAccessFile r = miniThumbDataFile();
         if (r != null) {

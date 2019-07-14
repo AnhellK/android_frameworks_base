@@ -457,8 +457,8 @@ status_t ResStringPool::setTo(const void* data, size_t size, bool copyData)
     }
 
     uninit();
-    
-   // The chunk must be at least the size of the string pool header.
+
+    // The chunk must be at least the size of the string pool header.
     if (size < sizeof(ResStringPool_header)) {
         ALOGW("Bad string block: data size %zu is too small to be a string block", size);
         return (mError=BAD_TYPE);
@@ -484,7 +484,7 @@ status_t ResStringPool::setTo(const void* data, size_t size, bool copyData)
         memcpy(mOwnedData, data, size);
         data = mOwnedData;
     }
-    
+
     // The size has been checked, so it is safe to read the data in the ResStringPool_header
     // data structure.
     mHeader = (const ResStringPool_header*)data;

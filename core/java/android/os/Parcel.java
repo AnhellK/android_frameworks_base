@@ -694,7 +694,7 @@ public final class Parcel {
         Set<Map.Entry<String,Object>> entries = val.entrySet();
         int size = entries.size();
         writeInt(size);
-        
+
         for (Map.Entry<String,Object> e : entries) {
             writeValue(e.getKey());
             writeValue(e.getValue());

@@ -248,13 +248,13 @@ public abstract class ContentProvider implements ComponentCallbacks2 {
         @Override
         public String getType(Uri uri) {
             uri = validateIncomingUri(uri);
-             uri = maybeGetUriWithoutUserId(uri);
+            uri = maybeGetUriWithoutUserId(uri);
             return ContentProvider.this.getType(uri);
         }
 
         @Override
         public Uri insert(String callingPkg, Uri uri, ContentValues initialValues) {
-            validateIncomingUri(uri);
+            uri = validateIncomingUri(uri);
             int userId = getUserIdFromUri(uri);
             uri = maybeGetUriWithoutUserId(uri);
             if (enforceWritePermission(callingPkg, uri, null) != AppOpsManager.MODE_ALLOWED) {
@@ -1877,7 +1877,7 @@ public abstract class ContentProvider implements ComponentCallbacks2 {
             return normalized;
         } else {
             return uri;
-        }       
+        }
     }
 
     /** @hide */

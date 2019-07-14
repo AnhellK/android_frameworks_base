@@ -3159,7 +3159,7 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         if (!isCallerWithSystemUid()) {
             throw new SecurityException("Caller must be system");
         }
-       ComponentName profileOwner = getProfileOwner(userHandle);
+        ComponentName profileOwner = getProfileOwner(userHandle);
         // Profile challenge is supported on N or newer release.
         return profileOwner != null &&
                 getTargetSdk(profileOwner.getPackageName(), userHandle) > Build.VERSION_CODES.M;
