@@ -15720,15 +15720,6 @@ public class PackageManagerService extends IPackageManager.Stub {
                     + " IntentFilter verification" + (count > 1 ? "s" : "")
                     +  " for userId:" + userId);
             mIntentFilterVerifier.startVerifications(userId);
-        } else if (alreadyVerified && handlesWebUris) {
-            // App used autoVerify in the past, no longer does, but still handles web
-            // navigation starts.
-            if (DEBUG_DOMAIN_VERIFICATION) {
-                Slog.d(TAG, "App changed web filters but no longer verifying - resetting policy");
-            }
-            synchronized (mPackages) {
-                clearIntentFilterVerificationsLPw(packageName, userId);
-            }
         } else {
             if (DEBUG_DOMAIN_VERIFICATION) {
                 Slog.d(TAG, "No web filters or no new host policy for " + packageName);
@@ -15745,6 +15736,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         int status = ivi.getStatus();
         switch (status) {
             case INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_UNDEFINED:
+            case INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_ALWAYS:
             case INTENT_FILTER_DOMAIN_VERIFICATION_STATUS_ASK:
                 return true;
 
