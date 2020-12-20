@@ -154,7 +154,7 @@ public class Notification implements Parcelable
      * <p>
      * Avoids spamming the system with overly large strings such as full e-mails.
      */
-    private static final int MAX_CHARSEQUENCE_LENGTH = 5 * 1024;
+    private static final int MAX_CHARSEQUENCE_LENGTH = 1024;
 
     /**
      * Maximum entries of reply text that are accepted by Builder and friends.
@@ -4973,7 +4973,7 @@ public class Notification implements Parcelable
              * consistent during re-posts of the notification.
              */
             public Message(CharSequence text, long timestamp, CharSequence sender){
-                mText = text;
+                mText = safeCharSequence(text);
                 mTimestamp = timestamp;
                 mSender = sender;
             }
