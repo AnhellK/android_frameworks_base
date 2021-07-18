@@ -49,6 +49,11 @@ import java.util.ArrayList;
 import cyanogenmod.providers.CMSettings;
 
 public class StatusBarIconView extends AnimatedImageView {
+    /**
+     * Maximum allowed width or height for an icon drawable, if we can't get byte count
+     */
+    private static final int MAX_IMAGE_SIZE = 5000;
+
     private static final String TAG = "StatusBarIconView";
     private boolean mAlwaysScaleIcon;
 
@@ -223,6 +228,15 @@ public class StatusBarIconView extends AnimatedImageView {
             Log.w(TAG, "No icon for slot " + mSlot + "; " + mIcon.icon);
             return false;
         }
+
+	if (drawable.getIntrinsicWidth() > MAX_IMAGE_SIZE
+                || drawable.getIntrinsicHeight() > MAX_IMAGE_SIZE) {
+            // Otherwise, check dimensions
+            Log.w(TAG, "Drawable is too large (" + drawable.getIntrinsicWidth() + "x"
+                    + drawable.getIntrinsicHeight() + ") " + mIcon);
+            return false;
+        }
+
         if (withClear) {
             setImageDrawable(null);
         }
